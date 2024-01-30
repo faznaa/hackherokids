@@ -35,7 +35,8 @@ export default function Home() {
     motivation_level:"",
     isUserNameAvailable:false,
     loadingStates:{
-      startBtn : false
+      startBtn : false,
+      typing : false,
     },
     disabledStates:{
       startBtn : true,
@@ -85,22 +86,26 @@ export default function Home() {
     >
       {/* {debouncedValue} */}
      {data?.disabledStates?.startChat ?
-     <div className="z-10 max-w-5xl w-full items-start justify-start font-mono text-sm flex flex-col  ">
+     <div className="z-10 max-w-5xl mx-auto w-full items-center justify-center font-mono text-sm flex flex-col  ">
      <input type="text" placeholder="username" onChange={(e)=>setData({...data,username:e.target.value})} className="border-2 border-black p-2 rounded-md"/>
     {(debouncedValue) && (data?.isUserNameAvailable ?  <p className="text-green-500">username available</p> : <p className="text-red-500">username not available</p>)}
     <Button disabled={data?.disabledStates?.startBtn} loading={data?.loadingStates?.startBtn} handleClick={() => startTest()} >Start Test</Button>
     </div>
     :
-    <div className=" max-w-5xl w-full items-start justify-start font-mono text-sm flex flex-col  ">
-      <p>Listing Price: {data?.listing_price}</p>
-      <p>True Value: {data?.true_value}</p>
+    <div className="  w-full sm:flex justify-center items-start relative font-mono text-sm   ">
+      <div className="my-4 text-xl font-medium w-full sm:max-w-xs h-fit bg-blue-200 px-4 py-2 rounded-lg mr-5 ">
+        <div className="my-2">
+        <p>Username: <b> {data?.username}</b></p>
+
+        </div>
+      <p>Listing Price: <b>{data?.listing_price}</b></p>
+      <p>True Value: <b>{data?.true_value}</b></p>
       {/* <p>Debt: {data?.debt}</p>
       <p>Motivation Level: {data?.motivation_level}</p> */}
-      <p>Username {data?.username}</p>
-      <div className="mt-4 w-full">
-      <Chat data={data} setData={setData}/>
-
       </div>
+      <div className="w-full  flex items-center justify-start mt-4">
+      <Chat data={data} setData={setData}/></div>
+
 
       </div>
     }
