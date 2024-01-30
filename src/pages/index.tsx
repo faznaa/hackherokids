@@ -27,7 +27,7 @@ export default function Home() {
   const [data, setData] = useState({
     username:"",
     allMsgs:[
-      ...dummyMsgs
+     
   ],
     listing_price:0,
     true_value:0,
