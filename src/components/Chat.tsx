@@ -39,7 +39,7 @@ export default function Chat({ data , setData} :any) {
     ])
   return (
     <div className='w-full sm:max-w-sm h-96 bg-gray-100 border border-red rounded-md relative'>
-        <div className='overflow-y-scroll h-full w-full flex flex-col gap-1 p-1'>
+        <div className='overflow-y-scroll h-[350px] w-full flex flex-col gap-1 p-1'>
         {data?.allMsgs?.map((msg:any) => <ChatUI msg={msg.msg} sender={msg.sender}/>)}
             <div ref={ref}/>
             </div>

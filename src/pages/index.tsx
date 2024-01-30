@@ -8,11 +8,26 @@ import Chat from "@/components/Chat";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const dummyMsgs = [
+  {
+    msg: "hello",
+    sender: "seller",
+  },
+  {
+    msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+    sender: "student",
+  },
+  {
+    msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.  ",
+    sender: "seller",
+  }
+]
+
 export default function Home() {
   const [data, setData] = useState({
     username:"",
     allMsgs:[
-
+      ...dummyMsgs
   ],
     listing_price:0,
     true_value:0,
@@ -68,6 +83,7 @@ export default function Home() {
     <main
       className={`bg-white text-black flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
+      {/* {debouncedValue} */}
      {data?.disabledStates?.startChat ?
      <div className="z-10 max-w-5xl w-full items-start justify-start font-mono text-sm flex flex-col  ">
      <input type="text" placeholder="username" onChange={(e)=>setData({...data,username:e.target.value})} className="border-2 border-black p-2 rounded-md"/>
@@ -78,10 +94,13 @@ export default function Home() {
     <div className=" max-w-5xl w-full items-start justify-start font-mono text-sm flex flex-col  ">
       <p>Listing Price: {data?.listing_price}</p>
       <p>True Value: {data?.true_value}</p>
-      <p>Debt: {data?.debt}</p>
-      <p>Motivation Level: {data?.motivation_level}</p>
+      {/* <p>Debt: {data?.debt}</p>
+      <p>Motivation Level: {data?.motivation_level}</p> */}
       <p>Username {data?.username}</p>
-<Chat data={data} setData={setData}/>
+      <div className="mt-4 w-full">
+      <Chat data={data} setData={setData}/>
+
+      </div>
 
       </div>
     }
