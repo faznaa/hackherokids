@@ -331,7 +331,7 @@ turtle.done()`;
         {query?.q === "admin" && (
           <>
             <a
-              href="https://trinket.io/turtle"
+              href="/HACKHEROES.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-black p-4 rounded-md"
